@@ -21,11 +21,297 @@ h1, h2, h3, .wordmark {
 }
 
 /* Header */
+/* Header */
 .header {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 16px 32px; border-bottom: 1px solid var(--line);
-  position: sticky; top: 0; z-index: 30;
-  background: rgba(243, 239, 230, 0.9); backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 12px 32px;
+
+  border-bottom: 1px solid var(--line);
+
+  position: sticky;
+  top: 0;
+  z-index: 30;
+
+  background: rgba(243, 239, 230, 0.94);
+  backdrop-filter: blur(10px);
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 125px;
+  height: 48px;
+
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.wordmark img {
+  display: block;
+
+  width: 118px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 13.5px;
+  color: #575343;
+
+  padding: 8px 10px;
+  border-radius: 5px;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+  background: rgba(24, 20, 15, 0.05);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+
+  padding: 7px 12px;
+
+  color: #8b856f;
+
+  width: 190px;
+
+  transition:
+    width 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--copper);
+  width: 230px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+
+  font-size: 13px;
+  font-family: inherit;
+
+  background: transparent;
+  color: var(--ink);
+
+  width: 100%;
+}
+
+.search-box input::placeholder {
+  color: #aaa398;
+}
+
+.search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+  color: #8b856f;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  position: relative;
+
+  background: none;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  color: var(--ink);
+  font-size: 13px;
+
+  padding: 8px 10px;
+  border-radius: 5px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.icon-btn-label {
+  display: inline;
+}
+
+.cart-badge {
+  position: absolute;
+
+  top: 1px;
+  right: 1px;
+
+  background: var(--copper);
+  color: white;
+
+  font-size: 10px;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header responsivo */
+@media (max-width: 900px) {
+  .header {
+    gap: 12px;
+    padding: 11px 20px;
+  }
+
+  .wordmark {
+    width: 105px;
+  }
+
+  .wordmark img {
+    width: 100px;
+  }
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+
+  .search-box {
+    width: 160px;
+  }
+
+  .search-box:focus-within {
+    width: 190px;
+  }
+
+  .icon-btn-label {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 10px 16px;
+  }
+
+  .wordmark {
+    width: 100px;
+    height: 42px;
+  }
+
+  .wordmark img {
+    width: 95px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+
+    justify-content: center;
+
+    border-top: 1px solid rgba(222, 214, 196, 0.7);
+    padding-top: 7px;
+  }
+
+  .header-right {
+    margin-left: auto;
+  }
+
+  .search-box {
+    width: 145px;
+  }
+
+  .search-box:focus-within {
+    width: 165px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-box {
+    width: 130px;
+  }
+
+  .search-box:focus-within {
+    width: 145px;
+  }
+
+  .search-box input {
+    font-size: 12px;
+  }
+
+  .header-actions {
+    gap: 2px;
+  }
+
+  .icon-btn {
+    padding: 7px;
+  }
+
+  .nav-link {
+    font-size: 11.5px;
+  }
 }
 .wordmark {
   background: none; border: none; cursor: pointer;

@@ -1,21 +1,23 @@
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
 .footer {
   margin-top: 80px;
 
   color: #eee8dc;
+
   background: #211d17;
 }
 
 .footer-inner {
-  width: min(1180px, calc(100% - 40px));
+  width: min(
+    1180px,
+    calc(100% - 40px)
+  );
 
   margin: 0 auto;
+
   padding: 64px 0 58px;
 
   display: grid;
+
   grid-template-columns:
     minmax(240px, 1.6fr)
     repeat(3, minmax(130px, 1fr));
@@ -23,32 +25,34 @@
   gap: 48px;
 }
 
-
-/* =========================================================
-   BRAND
-   ========================================================= */
-
 .footer-brand {
   max-width: 330px;
 }
 
 .footer-logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 
   margin: 0 0 16px;
   padding: 0;
 
-  color: #f3efe6;
   background: transparent;
-
   border: 0;
 
-  font-family: inherit;
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-
   cursor: pointer;
+}
+
+.footer-logo img {
+  display: block;
+
+  width: 125px;
+  height: auto;
+
+  filter:
+    brightness(0)
+    invert(1);
+
+  opacity: 0.95;
 }
 
 .footer-description {
@@ -62,14 +66,10 @@
   line-height: 1.7;
 }
 
-
-/* =========================================================
-   SOCIALS
-   ========================================================= */
-
 .footer-socials {
   display: flex;
   flex-wrap: wrap;
+
   gap: 9px;
 
   margin-top: 25px;
@@ -78,11 +78,13 @@
 .footer-social {
   display: inline-flex;
   align-items: center;
+
   gap: 7px;
 
   color: #c4bdb0;
 
   font-size: 11px;
+
   text-decoration: none;
 
   transition: color 0.2s ease;
@@ -106,8 +108,10 @@
   border-radius: 50%;
 
   font-family: Arial, sans-serif;
+
   font-size: 10px;
   font-weight: 700;
+
   text-transform: lowercase;
 
   transition:
@@ -115,15 +119,11 @@
     border-color 0.2s ease;
 }
 
-.footer-social:hover .footer-social-icon {
+.footer-social:hover
+.footer-social-icon {
   color: #f3efe6;
   border-color: #8c7d69;
 }
-
-
-/* =========================================================
-   COLUMNS
-   ========================================================= */
 
 .footer-column {
   display: flex;
@@ -138,7 +138,9 @@
 
   font-size: 11px;
   font-weight: 700;
+
   letter-spacing: 0.1em;
+
   text-transform: uppercase;
 }
 
@@ -148,8 +150,8 @@
   padding: 0;
 
   color: #a9a196;
-  background: transparent;
 
+  background: transparent;
   border: 0;
 
   font-family: inherit;
@@ -168,23 +170,21 @@
 .footer-column button:hover,
 .footer-column a:hover {
   color: #f3efe6;
+
   transform: translateX(2px);
 }
-
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
 
 .footer-contact a,
 .footer-contact-item {
   display: flex;
   align-items: center;
+
   gap: 9px;
 }
 
 .footer-contact svg {
   flex: 0 0 auto;
+
   color: #9c7149;
 }
 
@@ -192,17 +192,15 @@
   line-height: 1.4;
 }
 
-
-/* =========================================================
-   BOTTOM
-   ========================================================= */
-
 .footer-bottom {
   border-top: 1px solid #3b352d;
 }
 
 .footer-bottom-inner {
-  width: min(1180px, calc(100% - 40px));
+  width: min(
+    1180px,
+    calc(100% - 40px)
+  );
 
   min-height: 68px;
 
@@ -227,6 +225,7 @@
 .footer-back-top {
   display: inline-flex;
   align-items: center;
+
   gap: 6px;
 
   color: #aaa196;
@@ -244,11 +243,6 @@
   color: #f3efe6;
 }
 
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
 @media (max-width: 900px) {
   .footer-inner {
     grid-template-columns:
@@ -259,10 +253,10 @@
 
   .footer-brand {
     grid-column: 1 / -1;
+
     max-width: 500px;
   }
 }
-
 
 @media (max-width: 600px) {
   .footer {
@@ -270,7 +264,10 @@
   }
 
   .footer-inner {
-    width: min(100% - 32px, 500px);
+    width: min(
+      calc(100% - 32px),
+      500px
+    );
 
     padding: 48px 0 42px;
 
@@ -284,17 +281,20 @@
   }
 
   .footer-bottom-inner {
-    width: min(100% - 32px, 500px);
+    width: min(
+      calc(100% - 32px),
+      500px
+    );
 
     padding: 18px 0;
 
     align-items: flex-start;
+
     flex-direction: column;
 
     gap: 10px;
   }
 }
-
 
 @media (max-width: 420px) {
   .footer-inner {

@@ -4,6 +4,7 @@ import {
   Search,
   X,
 } from "lucide-react";
+import torraLogo from "../assets/torra-logo.png";
 
 export default function Header({
   cartCount,
@@ -18,12 +19,21 @@ export default function Header({
 }) {
   return (
     <header className="header">
-      <button className="wordmark" onClick={onHome}>
-        Torra
+      <button
+        type="button"
+        className="wordmark"
+        onClick={onHome}
+        aria-label="Ir para o início"
+      >
+        <img
+          src={torraLogo}
+          alt="Torra"
+        />
       </button>
 
       <nav className="nav-links">
         <button
+          type="button"
           className="nav-link"
           onClick={onProdutosClick}
         >
@@ -31,6 +41,7 @@ export default function Header({
         </button>
 
         <button
+          type="button"
           className="nav-link"
           onClick={onFavoritesClick}
         >
@@ -38,6 +49,7 @@ export default function Header({
         </button>
 
         <button
+          type="button"
           className="nav-link"
           onClick={onSobreClick}
         >
@@ -47,19 +59,24 @@ export default function Header({
 
       <div className="header-right">
         <div className="search-box">
-          <Search size={15} strokeWidth={1.8} />
+          <Search
+            size={15}
+            strokeWidth={1.8}
+          />
 
           <input
             type="text"
             placeholder="Buscar produtos"
             value={search}
-            onChange={(e) =>
-              onSearchChange(e.target.value)
+            onChange={(event) =>
+              onSearchChange(event.target.value)
             }
+            aria-label="Buscar produtos"
           />
 
           {search && (
             <button
+              type="button"
               className="search-clear"
               onClick={() => onSearchChange("")}
               aria-label="Limpar busca"
@@ -71,11 +88,19 @@ export default function Header({
 
         <nav className="header-actions">
           <button
+            type="button"
             className="icon-btn"
             onClick={onFavoritesClick}
-            aria-label="Favoritos"
+            aria-label={`Favoritos${
+              favoriteCount > 0
+                ? `, ${favoriteCount} itens`
+                : ""
+            }`}
           >
-            <Heart size={18} strokeWidth={1.6} />
+            <Heart
+              size={18}
+              strokeWidth={1.6}
+            />
 
             {favoriteCount > 0 && (
               <span className="cart-badge">
@@ -85,11 +110,19 @@ export default function Header({
           </button>
 
           <button
+            type="button"
             className="icon-btn"
             onClick={onCartClick}
-            aria-label="Sacola"
+            aria-label={`Sacola${
+              cartCount > 0
+                ? `, ${cartCount} itens`
+                : ""
+            }`}
           >
-            <ShoppingBag size={18} strokeWidth={1.6} />
+            <ShoppingBag
+              size={18}
+              strokeWidth={1.6}
+            />
 
             <span className="icon-btn-label">
               Sacola

@@ -4,31 +4,39 @@ import {
   Phone,
   ArrowUpRight,
 } from "lucide-react";
+
+import torraLogo from "../assets/torra-logo.png";
+
 import "./Footer.css";
 
 export default function Footer({
   onProdutosClick,
   onSobreClick,
 }) {
-  const currentYear = new Date().getFullYear();
+  const currentYear =
+    new Date().getFullYear();
 
   return (
     <footer className="footer">
       <div className="footer-inner">
 
-        {/* Marca */}
         <div className="footer-brand">
           <button
             type="button"
             className="footer-logo"
             onClick={onProdutosClick}
+            aria-label="Torra"
           >
-            Torra
+            <img
+              src={torraLogo}
+              alt="Torra"
+            />
           </button>
 
           <p className="footer-description">
-            Café, preparo e acessórios para transformar
-            cada xícara em um momento especial.
+            Café, preparo e acessórios
+            para transformar cada xícara
+            em um momento especial.
           </p>
 
           <div className="footer-socials">
@@ -40,6 +48,7 @@ export default function Footer({
               <span className="footer-social-icon">
                 ig
               </span>
+
               Instagram
             </a>
 
@@ -51,6 +60,7 @@ export default function Footer({
               <span className="footer-social-icon">
                 f
               </span>
+
               Facebook
             </a>
 
@@ -62,13 +72,12 @@ export default function Footer({
               <span className="footer-social-icon">
                 gh
               </span>
+
               GitHub
             </a>
           </div>
         </div>
 
-
-        {/* Loja */}
         <div className="footer-column">
           <h3>Loja</h3>
 
@@ -81,34 +90,26 @@ export default function Footer({
 
           <button
             type="button"
-            onClick={() => {
-              onProdutosClick?.();
-            }}
+            onClick={onProdutosClick}
           >
             Grãos
           </button>
 
           <button
             type="button"
-            onClick={() => {
-              onProdutosClick?.();
-            }}
+            onClick={onProdutosClick}
           >
             Equipamentos
           </button>
 
           <button
             type="button"
-            onClick={() => {
-              onProdutosClick?.();
-            }}
+            onClick={onProdutosClick}
           >
             Acessórios
           </button>
         </div>
 
-
-        {/* Institucional */}
         <div className="footer-column">
           <h3>Institucional</h3>
 
@@ -135,44 +136,52 @@ export default function Footer({
           </a>
         </div>
 
-
-        {/* Atendimento */}
         <div className="footer-column footer-contact">
           <h3>Atendimento</h3>
 
           <a href="mailto:contato@torra.com">
-            <Mail size={15} strokeWidth={1.7} />
-            <span>contato@torra.com</span>
+            <Mail
+              size={15}
+              strokeWidth={1.7}
+            />
+
+            <span>
+              contato@torra.com
+            </span>
           </a>
 
           <a href="tel:+5500000000000">
-            <Phone size={15} strokeWidth={1.7} />
-            <span>(00) 00000-0000</span>
+            <Phone
+              size={15}
+              strokeWidth={1.7}
+            />
+
+            <span>
+              (00) 00000-0000
+            </span>
           </a>
 
           <div className="footer-contact-item">
-            <MapPin size={15} strokeWidth={1.7} />
+            <MapPin
+              size={15}
+              strokeWidth={1.7}
+            />
 
-            <span>
-              Brasil
-            </span>
+            <span>Brasil</span>
           </div>
         </div>
       </div>
 
-
-      {/* Linha inferior */}
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
-
           <p>
-            © {currentYear} Torra. Todos os direitos
-            reservados.
+            © {currentYear} Torra.
+            Todos os direitos reservados.
           </p>
 
           <p>
-            Projeto autoral desenvolvido para fins
-            de demonstração.
+            Projeto autoral desenvolvido
+            para fins de demonstração.
           </p>
 
           <a
@@ -188,12 +197,12 @@ export default function Footer({
             }}
           >
             Voltar ao topo
+
             <ArrowUpRight
               size={14}
               strokeWidth={1.7}
             />
           </a>
-
         </div>
       </div>
     </footer>
