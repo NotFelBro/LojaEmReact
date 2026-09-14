@@ -5,16 +5,20 @@ import ProductDetail from "./componentes/ProductDetail";
 import CartDrawer from "./componentes/CartDrawer";
 import LoginOverlay from "./componentes/LoginOverlay";
 import Checkout from "./componentes/Checkout";
+import FavoritesPage from "./componentes/FavoritesPage";
+import About from "./componentes/About";
 import "./App.css";
 
 export default function App() {
   const [filter, setFilter] = useState("Tudo");
+  const [search, setSearch] = useState("");
   const [openProduct, setOpenProduct] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
-  const [view, setView] = useState("catalog"); // catalog | checkout
+  const [view, setView] = useState("catalog"); // catalog | checkout | favorites | about
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]); // [{product, qty}]
+  const [favorites, setFavorites] = useState([]); // [productId]
 
   function addToCart(product, qty) {
     setCart((prev) => {
@@ -35,21 +39,61 @@ export default function App() {
     setCart((prev) => prev.filter((i) => i.product.id !== id));
   }
 
+  function toggleFavorite(id) {
+    setFavorites((prev) => (prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]));
+  }
+
+  function goToProdutos() {
+    setView("catalog");
+    requestAnimationFrame(() => {
+      document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
   return (
     <div className="app">
       <Header
         cartCount={cartCount}
+        favoriteCount={favorites.length}
         onCartClick={() => setCartOpen(true)}
         onLoginClick={() => setLoginOpen(true)}
+        onFavoritesClick={() => setView("favorites")}
+        onProdutosClick={goToProdutos}
+        onSobreClick={() => setView("about")}
         user={user}
         onHome={() => setView("catalog")}
+        search={search}
+        onSearchChange={(v) => {
+          setSearch(v);
+          if (view !== "catalog") setView("catalog");
+        }}
       />
 
       {view === "catalog" && (
-        <Catalog onOpen={setOpenProduct} onAdd={addToCart} filter={filter} setFilter={setFilter} />
+        <Catalog
+          onOpen={setOpenProduct}
+          onAdd={addToCart}
+          filter={filter}
+          setFilter={setFilter}
+          search={search}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
+        />
       )}
+
+      {view === "favorites" && (
+        <FavoritesPage
+          favorites={favorites}
+          onOpen={setOpenProduct}
+          onAdd={addToCart}
+          onToggleFavorite={toggleFavorite}
+          onBrowse={goToProdutos}
+        />
+      )}
+
+      {view === "about" && <About />}
 
       {view === "checkout" && (
         <Checkout
@@ -65,7 +109,13 @@ export default function App() {
         />
       )}
 
-      <ProductDetail product={openProduct} onClose={() => setOpenProduct(null)} onAdd={addToCart} />
+      <ProductDetail
+        product={openProduct}
+        onClose={() => setOpenProduct(null)}
+        onAdd={addToCart}
+        isFavorite={openProduct ? favorites.includes(openProduct.id) : false}
+        onToggleFavorite={toggleFavorite}
+      />
 
       <CartDrawer
         open={cartOpen}

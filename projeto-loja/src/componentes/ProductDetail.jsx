@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { X, Plus, Minus } from "lucide-react";
+import { X, Plus, Minus, Heart } from "lucide-react";
 import ProductIcon from "./ProductIcon";
 import { money } from "../utils/format";
 
-export default function ProductDetail({ product, onClose, onAdd }) {
+export default function ProductDetail({ product, onClose, onAdd, isFavorite, onToggleFavorite }) {
   const [qty, setQty] = useState(1);
   if (!product) return null;
 
@@ -15,7 +15,16 @@ export default function ProductDetail({ product, onClose, onAdd }) {
           <ProductIcon type={product.icon} className="detail-icon" />
         </div>
         <div className="detail-body">
-          <p className="card-category">{product.category}</p>
+          <div className="detail-head-row">
+            <p className="card-category">{product.category}</p>
+            <button
+              className={"favorite-btn inline" + (isFavorite ? " active" : "")}
+              onClick={() => onToggleFavorite(product.id)}
+              aria-label={isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+            >
+              <Heart size={16} strokeWidth={1.8} fill={isFavorite ? "currentColor" : "none"} />
+            </button>
+          </div>
           <h2>{product.name}</h2>
           <p className="detail-note">{product.note}</p>
           <p className="detail-price">{money(product.price)}</p>

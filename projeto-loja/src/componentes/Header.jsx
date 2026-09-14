@@ -1,20 +1,60 @@
-import { ShoppingBag, User } from "lucide-react";
+import { ShoppingBag, User, Heart, Search, X } from "lucide-react";
 
-export default function Header({ cartCount, onCartClick, onLoginClick, user, onHome }) {
+export default function Header({
+  cartCount,
+  favoriteCount,
+  onCartClick,
+  onLoginClick,
+  onFavoritesClick,
+  onProdutosClick,
+  onSobreClick,
+  user,
+  onHome,
+  search,
+  onSearchChange,
+}) {
   return (
     <header className="header">
       <button className="wordmark" onClick={onHome}>Torra</button>
-      <nav className="header-actions">
-        <button className="icon-btn" onClick={onLoginClick}>
-          <User size={18} strokeWidth={1.6} />
-          <span className="icon-btn-label">{user ? user.name.split(" ")[0] : "Entrar"}</span>
-        </button>
-        <button className="icon-btn" onClick={onCartClick}>
-          <ShoppingBag size={18} strokeWidth={1.6} />
-          <span className="icon-btn-label">Sacola</span>
-          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-        </button>
+
+      <nav className="nav-links">
+        <button className="nav-link" onClick={onProdutosClick}>Produtos</button>
+        <button className="nav-link" onClick={onFavoritesClick}>Favoritos</button>
+        <button className="nav-link" onClick={onSobreClick}>Sobre</button>
       </nav>
+
+      <div className="header-right">
+        <div className="search-box">
+          <Search size={15} strokeWidth={1.8} />
+          <input
+            type="text"
+            placeholder="Buscar produtos"
+            value={search}
+            onChange={(e) => onSearchChange(e.target.value)}
+          />
+          {search && (
+            <button className="search-clear" onClick={() => onSearchChange("")}>
+              <X size={13} />
+            </button>
+          )}
+        </div>
+
+        <nav className="header-actions">
+          <button className="icon-btn" onClick={onLoginClick}>
+            <User size={18} strokeWidth={1.6} />
+            <span className="icon-btn-label">{user ? user.name.split(" ")[0] : "Entrar"}</span>
+          </button>
+          <button className="icon-btn" onClick={onFavoritesClick}>
+            <Heart size={18} strokeWidth={1.6} />
+            {favoriteCount > 0 && <span className="cart-badge">{favoriteCount}</span>}
+          </button>
+          <button className="icon-btn" onClick={onCartClick}>
+            <ShoppingBag size={18} strokeWidth={1.6} />
+            <span className="icon-btn-label">Sacola</span>
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          </button>
+        </nav>
+      </div>
     </header>
   );
 }
