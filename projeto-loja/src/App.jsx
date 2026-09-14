@@ -3,10 +3,10 @@ import Header from "./componentes/Header";
 import Catalog from "./componentes/Catalog";
 import ProductDetail from "./componentes/ProductDetail";
 import CartDrawer from "./componentes/CartDrawer";
-import LoginOverlay from "./componentes/LoginOverlay";
 import Checkout from "./componentes/Checkout";
 import FavoritesPage from "./componentes/FavoritesPage";
 import About from "./componentes/About";
+import Footer from "./componentes/Footer";
 import "./App.css";
 
 export default function App() {
@@ -14,43 +14,61 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [openProduct, setOpenProduct] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
-  const [view, setView] = useState("catalog"); // catalog | checkout | favorites | about
-  const [user, setUser] = useState(null);
-  const [cart, setCart] = useState([]); // [{product, qty}]
-  const [favorites, setFavorites] = useState([]); // [productId]
+  const [view, setView] = useState("catalog");
+  const [cart, setCart] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   function addToCart(product, qty) {
     setCart((prev) => {
       const existing = prev.find((i) => i.product.id === product.id);
+
       if (existing) {
-        return prev.map((i) => (i.product.id === product.id ? { ...i, qty: i.qty + qty } : i));
+        return prev.map((i) =>
+          i.product.id === product.id
+            ? { ...i, qty: i.qty + qty }
+            : i
+        );
       }
+
       return [...prev, { product, qty }];
     });
+
     setCartOpen(true);
   }
 
   function setQty(id, qty) {
-    setCart((prev) => prev.map((i) => (i.product.id === id ? { ...i, qty } : i)));
+    setCart((prev) =>
+      prev.map((i) =>
+        i.product.id === id ? { ...i, qty } : i
+      )
+    );
   }
 
   function removeItem(id) {
-    setCart((prev) => prev.filter((i) => i.product.id !== id));
+    setCart((prev) =>
+      prev.filter((i) => i.product.id !== id)
+    );
   }
 
   function toggleFavorite(id) {
-    setFavorites((prev) => (prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]));
+    setFavorites((prev) =>
+      prev.includes(id)
+        ? prev.filter((f) => f !== id)
+        : [...prev, id]
+    );
   }
 
   function goToProdutos() {
     setView("catalog");
+
     requestAnimationFrame(() => {
-      document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("produtos")
+        ?.scrollIntoView({ behavior: "smooth" });
     });
   }
 
-  const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
   return (
     <div className="app">
@@ -58,16 +76,17 @@ export default function App() {
         cartCount={cartCount}
         favoriteCount={favorites.length}
         onCartClick={() => setCartOpen(true)}
-        onLoginClick={() => setLoginOpen(true)}
         onFavoritesClick={() => setView("favorites")}
         onProdutosClick={goToProdutos}
         onSobreClick={() => setView("about")}
-        user={user}
         onHome={() => setView("catalog")}
         search={search}
-        onSearchChange={(v) => {
-          setSearch(v);
-          if (view !== "catalog") setView("catalog");
+        onSearchChange={(value) => {
+          setSearch(value);
+
+          if (view !== "catalog") {
+            setView("catalog");
+          }
         }}
       />
 
@@ -113,7 +132,11 @@ export default function App() {
         product={openProduct}
         onClose={() => setOpenProduct(null)}
         onAdd={addToCart}
-        isFavorite={openProduct ? favorites.includes(openProduct.id) : false}
+        isFavorite={
+          openProduct
+            ? favorites.includes(openProduct.id)
+            : false
+        }
         onToggleFavorite={toggleFavorite}
       />
 
@@ -129,15 +152,9 @@ export default function App() {
         }}
       />
 
-      <LoginOverlay
-        open={loginOpen}
-        onClose={() => setLoginOpen(false)}
-        user={user}
-        onLogin={(u) => {
-          setUser(u);
-          setLoginOpen(false);
-        }}
-        onLogout={() => setUser(null)}
+      <Footer
+        onProdutosClick={goToProdutos}
+        onSobreClick={() => setView("about")}
       />
     </div>
   );
