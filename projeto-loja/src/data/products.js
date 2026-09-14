@@ -1,0 +1,68 @@
+export const PRODUCTS = [
+  {
+    id: "graos-media-cerrado",
+    name: "Torra Média — Cerrado",
+    category: "Grãos",
+    price: 42,
+    note: "Caramelo, castanha, final amanteigado",
+    icon: "bag",
+  },
+  {
+    id: "graos-escura-minas",
+    name: "Torra Escura — Sul de Minas",
+    category: "Grãos",
+    price: 45,
+    note: "Cacau, especiarias, corpo denso",
+    icon: "bag",
+  },
+  {
+    id: "graos-clara-mantiqueira",
+    name: "Torra Clara — Mantiqueira",
+    category: "Grãos",
+    price: 48,
+    note: "Frutas vermelhas, acidez cítrica",
+    icon: "bag",
+  },
+  {
+    id: "moedor-manual",
+    name: "Moedor Manual Compacto",
+    category: "Equipamentos",
+    price: 189,
+    note: "Mós de cerâmica, 18 graduações",
+    icon: "grinder",
+  },
+  {
+    id: "dripper-v60",
+    name: "Dripper Cerâmico V60",
+    category: "Equipamentos",
+    price: 99,
+    note: "Extração cônica, inclui suporte",
+    icon: "dripper",
+  },
+  {
+    id: "chaleira-bico-fino",
+    name: "Chaleira de Bico Fino",
+    category: "Equipamentos",
+    price: 249,
+    note: "Fluxo controlado, indução",
+    icon: "kettle",
+  },
+  {
+    id: "balanca-precisao",
+    name: "Balança de Precisão",
+    category: "Acessórios",
+    price: 159,
+    note: "0.1g, temporizador integrado",
+    icon: "scale",
+  },
+  {
+    id: "caneca-ceramica",
+    name: "Caneca de Cerâmica Torra",
+    category: "Acessórios",
+    price: 69,
+    note: "220ml, feita à mão",
+    icon: "mug",
+  },
+];
+
+export const CATEGORIES = ["Tudo", "Grãos", "Equipamentos", "Acessórios"];
