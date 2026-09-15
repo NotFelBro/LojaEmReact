@@ -1188,3 +1188,438 @@
     transition: none;
   }
 }
+
+/* =====================================================
+   UPGRADE DA ANIMAÇÃO DO CARROSSEL
+===================================================== */
+
+.promo-slide {
+  animation-duration: 0.75s;
+  animation-timing-function: cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  );
+
+  animation-fill-mode: both;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =====================================================
+   ENTRADA PELA DIREITA
+===================================================== */
+
+.promo-slide-next {
+  animation-name:
+    promo-slide-next;
+}
+
+
+/* =====================================================
+   ENTRADA PELA ESQUERDA
+===================================================== */
+
+.promo-slide-previous {
+  animation-name:
+    promo-slide-previous;
+}
+
+
+/* =====================================================
+   MOVIMENTO PRINCIPAL
+===================================================== */
+
+@keyframes promo-slide-next {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateX(42px)
+      scale(0.985);
+  }
+
+  45% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+
+}
+
+
+@keyframes promo-slide-previous {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateX(-42px)
+      scale(0.985);
+  }
+
+  45% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.promo-slide .promo-content {
+  animation:
+    promo-content-enter
+    0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+}
+
+
+@keyframes promo-content-enter {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   PEQUENO ATRASO NO EYEBROW
+===================================================== */
+
+.promo-slide .promo-eyebrow {
+  animation:
+    promo-eyebrow-enter
+    0.65s
+    ease
+    both;
+
+  animation-delay:
+    0.08s;
+}
+
+
+@keyframes promo-eyebrow-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.promo-slide .promo-title {
+  animation:
+    promo-title-enter
+    0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+
+  animation-delay:
+    0.12s;
+}
+
+
+@keyframes promo-title-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
+
+.promo-slide .promo-description {
+  animation:
+    promo-description-enter
+    0.7s
+    ease
+    both;
+
+  animation-delay:
+    0.2s;
+}
+
+
+@keyframes promo-description-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.promo-slide .promo-button {
+  animation:
+    promo-button-enter
+    0.7s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+
+  animation-delay:
+    0.28s;
+}
+
+
+@keyframes promo-button-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   ÁREA VISUAL
+===================================================== */
+
+.promo-slide .promo-visual {
+  animation:
+    promo-visual-enter
+    0.95s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+
+  animation-delay:
+    0.05s;
+}
+
+
+@keyframes promo-visual-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(35px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   ÍCONE DO BANNER
+===================================================== */
+
+.promo-slide .promo-icon-badge {
+  animation:
+    promo-badge-enter
+    0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
+
+  animation-delay:
+    0.35s;
+}
+
+
+@keyframes promo-badge-enter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.75)
+      rotate(-8deg);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0);
+  }
+
+}
+
+
+/* =====================================================
+   SETAS
+===================================================== */
+
+.promo-arrow {
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.promo-arrow-left:hover {
+  transform:
+    translateX(-3px);
+}
+
+
+.promo-arrow-right:hover {
+  transform:
+    translateX(3px);
+}
+
+
+/* =====================================================
+   DOTS
+===================================================== */
+
+.promo-dot {
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.promo-dot:hover {
+  transform:
+    scale(1.15);
+}
+
+
+/* =====================================================
+   ACESSIBILIDADE
+===================================================== */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .promo-slide,
+  .promo-slide .promo-content,
+  .promo-slide .promo-eyebrow,
+  .promo-slide .promo-title,
+  .promo-slide .promo-description,
+  .promo-slide .promo-button,
+  .promo-slide .promo-visual,
+  .promo-slide .promo-icon-badge {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+}
