@@ -5,22 +5,39 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-import torraLogo from "../assets/torra-logo.png";
+import torraLogoLight from "../assets/torra-logo-light.png";
+import torraLogoDark from "../assets/torra-logo-dark.png";
+import torraLogoCoffee from "../assets/torra-logo-coffee.png";
 
 import "./Footer.css";
 
 export default function Footer({
   onProdutosClick,
   onSobreClick,
+  theme,
 }) {
   const currentYear =
     new Date().getFullYear();
 
+  const logos = {
+    light: torraLogoLight,
+    dark: torraLogoDark,
+    coffee: torraLogoCoffee,
+  };
+
+  const currentLogo =
+    logos[theme] ||
+    torraLogoLight;
+
   return (
     <footer className="footer">
+
       <div className="footer-inner">
 
+        {/* MARCA */}
+
         <div className="footer-brand">
+
           <button
             type="button"
             className="footer-logo"
@@ -28,7 +45,7 @@ export default function Footer({
             aria-label="Torra"
           >
             <img
-              src={torraLogo}
+              src={currentLogo}
               alt="Torra"
             />
           </button>
@@ -40,6 +57,7 @@ export default function Footer({
           </p>
 
           <div className="footer-socials">
+
             <a
               href="#"
               className="footer-social"
@@ -75,10 +93,16 @@ export default function Footer({
 
               GitHub
             </a>
+
           </div>
+
         </div>
 
+
+        {/* LOJA */}
+
         <div className="footer-column">
+
           <h3>Loja</h3>
 
           <button
@@ -108,9 +132,14 @@ export default function Footer({
           >
             Acessórios
           </button>
+
         </div>
 
+
+        {/* INSTITUCIONAL */}
+
         <div className="footer-column">
+
           <h3>Institucional</h3>
 
           <button
@@ -134,9 +163,14 @@ export default function Footer({
           <a href="#">
             Privacidade
           </a>
+
         </div>
 
+
+        {/* ATENDIMENTO */}
+
         <div className="footer-column footer-contact">
+
           <h3>Atendimento</h3>
 
           <a href="mailto:contato@torra.com">
@@ -162,18 +196,29 @@ export default function Footer({
           </a>
 
           <div className="footer-contact-item">
+
             <MapPin
               size={15}
               strokeWidth={1.7}
             />
 
-            <span>Brasil</span>
+            <span>
+              Brasil
+            </span>
+
           </div>
+
         </div>
+
       </div>
 
+
+      {/* RODAPÉ */}
+
       <div className="footer-bottom">
+
         <div className="footer-bottom-inner">
+
           <p>
             © {currentYear} Torra.
             Todos os direitos reservados.
@@ -203,8 +248,11 @@ export default function Footer({
               strokeWidth={1.7}
             />
           </a>
+
         </div>
+
       </div>
+
     </footer>
   );
 }

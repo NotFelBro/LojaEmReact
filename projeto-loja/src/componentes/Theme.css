@@ -1,0 +1,1104 @@
+/* =========================================================
+   TORRA — SISTEMA DE TEMAS
+   LIGHT / DARK / COFFEE
+   ========================================================= */
+
+
+/* =========================================================
+   TEMA LIGHT
+   ========================================================= */
+
+:root,
+html[data-theme="light"] {
+  --ink: #18140f;
+  --paper: #f3efe6;
+  --panel: #ffffff;
+  --copper: #a9642a;
+  --olive: #5c6a4e;
+  --line: #ded6c4;
+
+  --theme-page: #f3efe6;
+  --theme-surface: #ffffff;
+  --theme-surface-2: #ebe4d6;
+  --theme-surface-3: #e3dac9;
+
+  --theme-text: #18140f;
+  --theme-text-2: #5f5a52;
+  --theme-text-3: #777064;
+
+  --theme-border: #ded6c4;
+
+  --theme-accent: #a9642a;
+  --theme-accent-hover: #8e5222;
+  --theme-accent-soft: #ead8c4;
+
+  --theme-input: #ffffff;
+
+  --theme-shadow:
+    rgba(24, 20, 15, 0.07);
+
+  --theme-overlay:
+    rgba(24, 20, 15, 0.48);
+}
+
+
+/* =========================================================
+   TEMA DARK
+   ========================================================= */
+
+html[data-theme="dark"] {
+  --ink: #f1ece3;
+  --paper: #141210;
+  --panel: #211e1a;
+  --copper: #c9864e;
+  --olive: #879477;
+  --line: #3b352d;
+
+  --theme-page: #141210;
+  --theme-surface: #211e1a;
+  --theme-surface-2: #2a2520;
+  --theme-surface-3: #332c24;
+
+  --theme-text: #f1ece3;
+  --theme-text-2: #c1b8ab;
+  --theme-text-3: #9c9387;
+
+  --theme-border: #3b352d;
+
+  --theme-accent: #c9864e;
+  --theme-accent-hover: #dda06b;
+  --theme-accent-soft: #3b2c20;
+
+  --theme-input: #211e1a;
+
+  --theme-shadow:
+    rgba(0, 0, 0, 0.28);
+
+  --theme-overlay:
+    rgba(0, 0, 0, 0.70);
+}
+
+
+/* =========================================================
+   TEMA COFFEE
+   ========================================================= */
+
+html[data-theme="coffee"] {
+  --ink: #f5eadc;
+  --paper: #2b211b;
+  --panel: #362920;
+  --copper: #d29a61;
+  --olive: #9a9a73;
+  --line: #5b4637;
+
+  --theme-page: #2b211b;
+  --theme-surface: #362920;
+  --theme-surface-2: #443329;
+  --theme-surface-3: #513d2f;
+
+  --theme-text: #f5eadc;
+  --theme-text-2: #d0bdab;
+  --theme-text-3: #b39d89;
+
+  --theme-border: #5b4637;
+
+  --theme-accent: #d29a61;
+  --theme-accent-hover: #e0ad79;
+  --theme-accent-soft: #513a28;
+
+  --theme-input: #362920;
+
+  --theme-shadow:
+    rgba(15, 8, 4, 0.28);
+
+  --theme-overlay:
+    rgba(22, 12, 7, 0.72);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+  background:
+    var(--theme-page);
+
+  color:
+    var(--theme-text);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+body {
+  background:
+    var(--theme-page);
+
+  color:
+    var(--theme-text);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.app {
+  min-height: 100vh;
+
+  background:
+    var(--theme-page);
+
+  color:
+    var(--theme-text);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+
+/* =========================================================
+   TRANSIÇÕES GERAIS
+   ========================================================= */
+
+.header,
+.search-box,
+.catalog-sidebar,
+.product-card,
+.product-detail,
+.product-modal,
+.cart-drawer,
+.checkout-card,
+.checkout-panel,
+.checkout-summary,
+.sidebar-mobile-trigger,
+input,
+textarea,
+select,
+button {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  background:
+    color-mix(
+      in srgb,
+      var(--theme-page) 94%,
+      transparent
+    ) !important;
+
+  border-color:
+    var(--theme-border) !important;
+}
+
+.nav-link,
+.icon-btn {
+  color:
+    var(--theme-text) !important;
+}
+
+.nav-link:hover,
+.icon-btn:hover {
+  color:
+    var(--theme-accent) !important;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: auto;
+  min-width: 125px;
+  height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.wordmark img {
+  display: block;
+
+  width: 125px;
+  height: auto;
+
+  object-fit: contain;
+
+  filter: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.wordmark:hover img {
+  opacity: 0.84;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   BUSCA
+   ========================================================= */
+
+.search-box {
+  color:
+    var(--theme-text-3) !important;
+
+  background:
+    var(--theme-surface) !important;
+
+  border-color:
+    var(--theme-border) !important;
+
+  box-shadow:
+    0 3px 14px
+    var(--theme-shadow);
+}
+
+.search-box input {
+  color:
+    var(--theme-text) !important;
+
+  background:
+    transparent !important;
+}
+
+.search-box input::placeholder {
+  color:
+    var(--theme-text-3) !important;
+}
+
+.search-clear {
+  color:
+    var(--theme-text-3) !important;
+}
+
+.search-clear:hover {
+  color:
+    var(--theme-accent) !important;
+}
+
+
+/* =========================================================
+   THEME SWITCHER
+   ========================================================= */
+
+.theme-switcher {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  align-items: center;
+
+  width: 118px;
+  height: 42px;
+
+  padding: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--theme-surface),
+      var(--theme-surface-2)
+    );
+
+  border:
+    1px solid
+    var(--theme-border);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 2px 4px
+      var(--theme-shadow),
+    0 8px 20px
+      var(--theme-shadow),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.20);
+
+  overflow: hidden;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.theme-option {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  color:
+    var(--theme-text-3);
+
+  background:
+    transparent;
+
+  border: 0;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  z-index: 1;
+
+  transition:
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.theme-option-inner {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+}
+
+.theme-option:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 9px;
+  right: 0;
+
+  width: 1px;
+  height: 24px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--theme-border),
+      transparent
+    );
+
+  opacity: 0.8;
+}
+
+.theme-option:hover {
+  color:
+    var(--theme-text);
+}
+
+.theme-option:hover
+.theme-option-inner {
+  background:
+    var(--theme-surface-2);
+}
+
+.theme-option.active {
+  color:
+    var(--theme-accent);
+}
+
+.theme-option.active
+.theme-option-inner {
+  background:
+    linear-gradient(
+      145deg,
+      var(--theme-accent-soft),
+      var(--theme-surface-2)
+    );
+
+  box-shadow:
+    0 2px 5px
+      var(--theme-shadow),
+    0 5px 13px
+      var(--theme-shadow),
+    inset 0 1px 1px
+      rgba(255, 255, 255, 0.18);
+
+  transform:
+    scale(1.03);
+}
+
+.theme-option.active
+.theme-option-inner::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  border-radius: inherit;
+
+  border:
+    1px solid
+    var(--theme-accent);
+
+  opacity: 0.30;
+
+  pointer-events: none;
+}
+
+.theme-option:active
+.theme-option-inner {
+  transform:
+    scale(0.92);
+}
+
+.theme-option:focus-visible {
+  outline: none;
+}
+
+.theme-option:focus-visible
+.theme-option-inner {
+  outline:
+    2px solid
+    var(--theme-accent);
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   CATÁLOGO
+   ========================================================= */
+
+.catalog-section,
+.catalog-heading {
+  color:
+    var(--theme-text);
+}
+
+.catalog-heading h2 {
+  color:
+    var(--theme-text);
+}
+
+.catalog-kicker {
+  color:
+    var(--theme-accent) !important;
+}
+
+.catalog-result-count {
+  color:
+    var(--theme-text-3);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.catalog-sidebar {
+  color:
+    var(--theme-text) !important;
+
+  background:
+    var(--theme-surface) !important;
+
+  border-color:
+    var(--theme-border) !important;
+
+  box-shadow:
+    0 8px 30px
+    var(--theme-shadow) !important;
+}
+
+.sidebar-eyebrow {
+  color:
+    var(--theme-accent) !important;
+}
+
+.sidebar-header h2 {
+  color:
+    var(--theme-text) !important;
+}
+
+.sidebar-section-title {
+  color:
+    var(--theme-text-3) !important;
+}
+
+.sidebar-divider {
+  background:
+    var(--theme-border) !important;
+}
+
+.sidebar-category {
+  color:
+    var(--theme-text-2) !important;
+}
+
+.sidebar-category:hover {
+  color:
+    var(--theme-text) !important;
+
+  background:
+    var(--theme-surface-2) !important;
+}
+
+.sidebar-category.active {
+  color:
+    var(--theme-text) !important;
+
+  background:
+    var(--theme-surface-2) !important;
+}
+
+.sidebar-count {
+  color:
+    var(--theme-text-3) !important;
+}
+
+.sidebar-category.active
+.sidebar-count {
+  color:
+    var(--theme-accent) !important;
+}
+
+.sidebar-tip {
+  background:
+    var(--theme-surface-2) !important;
+}
+
+.sidebar-tip-label {
+  color:
+    var(--theme-accent) !important;
+}
+
+.sidebar-tip strong {
+  color:
+    var(--theme-text) !important;
+}
+
+.sidebar-tip p {
+  color:
+    var(--theme-text-3) !important;
+}
+
+.sidebar-mobile-trigger {
+  color:
+    var(--theme-text) !important;
+
+  background:
+    var(--theme-surface) !important;
+
+  border-color:
+    var(--theme-border) !important;
+}
+
+.sidebar-close {
+  color:
+    var(--theme-text) !important;
+
+  border-color:
+    var(--theme-border) !important;
+}
+
+
+/* =========================================================
+   CARDS DE PRODUTO
+   ========================================================= */
+
+.product-card {
+  color:
+    var(--theme-text);
+
+  background:
+    var(--theme-surface);
+
+  border-color:
+    var(--theme-border);
+
+  box-shadow:
+    0 8px 30px
+    var(--theme-shadow);
+}
+
+.product-card h1,
+.product-card h2,
+.product-card h3,
+.product-card h4,
+.product-card strong {
+  color:
+    var(--theme-text);
+}
+
+.product-card p {
+  color:
+    var(--theme-text-2);
+}
+
+.product-card span {
+  color:
+    var(--theme-text-3);
+}
+
+
+/* =========================================================
+   BOTÃO ADICIONAR
+   =========================================================
+
+   O ProductCard utiliza a classe .btn-small.
+   O botão fica claro nos três temas e o texto permanece
+   escuro para garantir contraste.
+   ========================================================= */
+
+.btn-small {
+  color:
+    #2a211a !important;
+
+  background:
+    #f5eee4 !important;
+
+  border-color:
+    transparent !important;
+
+  font-weight: 600;
+
+  text-shadow: none;
+
+  -webkit-text-fill-color:
+    #2a211a !important;
+}
+
+.btn-small:hover {
+  color:
+    #1d1712 !important;
+
+  background:
+    #fff8ef !important;
+
+  -webkit-text-fill-color:
+    #1d1712 !important;
+}
+
+
+/* =========================================================
+   BOTÃO ADICIONAR — DARK
+   ========================================================= */
+
+html[data-theme="dark"]
+.btn-small {
+  color:
+    #2a211a !important;
+
+  background:
+    #f5eee4 !important;
+
+  border-color:
+    transparent !important;
+
+  -webkit-text-fill-color:
+    #2a211a !important;
+}
+
+html[data-theme="dark"]
+.btn-small:hover {
+  color:
+    #1d1712 !important;
+
+  background:
+    #fff8ef !important;
+
+  -webkit-text-fill-color:
+    #1d1712 !important;
+}
+
+
+/* =========================================================
+   BOTÃO ADICIONAR — COFFEE
+   ========================================================= */
+
+html[data-theme="coffee"]
+.btn-small {
+  color:
+    #2a211a !important;
+
+  background:
+    #f5eee4 !important;
+
+  border-color:
+    transparent !important;
+
+  -webkit-text-fill-color:
+    #2a211a !important;
+}
+
+html[data-theme="coffee"]
+.btn-small:hover {
+  color:
+    #1d1712 !important;
+
+  background:
+    #fff8ef !important;
+
+  -webkit-text-fill-color:
+    #1d1712 !important;
+}
+
+
+/* =========================================================
+   FAVORITOS
+   ========================================================= */
+
+.favorites-page,
+.favorites-section {
+  color:
+    var(--theme-text);
+}
+
+.favorites-page h1,
+.favorites-page h2,
+.favorites-page h3 {
+  color:
+    var(--theme-text);
+}
+
+.favorites-page p,
+.favorites-page span {
+  color:
+    var(--theme-text-2);
+}
+
+
+/* =========================================================
+   DETALHE DO PRODUTO / MODAIS
+   ========================================================= */
+
+.product-detail,
+.product-detail-panel,
+.product-modal {
+  color:
+    var(--theme-text);
+
+  background:
+    var(--theme-surface);
+
+  border-color:
+    var(--theme-border);
+
+  box-shadow:
+    0 20px 70px
+    var(--theme-shadow);
+}
+
+.product-detail h1,
+.product-detail h2,
+.product-detail h3,
+.product-detail h4,
+.product-detail strong {
+  color:
+    var(--theme-text);
+}
+
+.product-detail p {
+  color:
+    var(--theme-text-2);
+}
+
+.product-detail span {
+  color:
+    var(--theme-text-3);
+}
+
+
+/* =========================================================
+   OVERLAYS
+   ========================================================= */
+
+.modal-overlay,
+.product-detail-overlay,
+.overlay {
+  background:
+    var(--theme-overlay) !important;
+}
+
+
+/* =========================================================
+   CARRINHO
+   ========================================================= */
+
+.cart-drawer {
+  color:
+    var(--theme-text);
+
+  background:
+    var(--theme-surface);
+
+  border-color:
+    var(--theme-border);
+
+  box-shadow:
+    -15px 0 50px
+    var(--theme-shadow);
+}
+
+.cart-drawer h1,
+.cart-drawer h2,
+.cart-drawer h3,
+.cart-drawer h4,
+.cart-drawer strong {
+  color:
+    var(--theme-text);
+}
+
+.cart-drawer p {
+  color:
+    var(--theme-text-2);
+}
+
+.cart-drawer span {
+  color:
+    var(--theme-text-3);
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+.checkout,
+.checkout-page,
+.checkout-section {
+  color:
+    var(--theme-text);
+}
+
+.checkout-card,
+.checkout-panel,
+.checkout-summary {
+  color:
+    var(--theme-text);
+
+  background:
+    var(--theme-surface);
+
+  border-color:
+    var(--theme-border);
+
+  box-shadow:
+    0 8px 30px
+    var(--theme-shadow);
+}
+
+.checkout h1,
+.checkout h2,
+.checkout h3,
+.checkout h4,
+.checkout strong,
+.checkout-page h1,
+.checkout-page h2,
+.checkout-page h3 {
+  color:
+    var(--theme-text);
+}
+
+.checkout p,
+.checkout-page p {
+  color:
+    var(--theme-text-2);
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  color:
+    var(--theme-text) !important;
+
+  background:
+    var(--theme-input) !important;
+
+  border-color:
+    var(--theme-border) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color:
+    var(--theme-text-3) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color:
+    var(--theme-accent) !important;
+
+  outline-color:
+    var(--theme-accent);
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.cart-badge {
+  color:
+    #ffffff !important;
+
+  background:
+    var(--theme-accent) !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background:
+    #211d17;
+
+  transition:
+    background-color 0.35s ease;
+}
+
+html[data-theme="dark"]
+.footer {
+  background:
+    #0e0d0b;
+}
+
+html[data-theme="coffee"]
+.footer {
+  background:
+    #211711;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .wordmark {
+    min-width: 110px;
+  }
+
+  .wordmark img {
+    width: 110px;
+  }
+
+  .theme-switcher {
+    width: 112px;
+    height: 40px;
+  }
+
+  .theme-option-inner {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .wordmark {
+    min-width: 95px;
+  }
+
+  .wordmark img {
+    width: 95px;
+  }
+
+  .theme-switcher {
+    width: 105px;
+    height: 38px;
+  }
+
+  .theme-option-inner {
+    width: 30px;
+    height: 30px;
+  }
+
+  .theme-option svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .theme-option:not(:last-child)::after {
+    top: 8px;
+    height: 22px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .theme-switcher {
+    width: 96px;
+    height: 36px;
+  }
+
+  .theme-option-inner {
+    width: 28px;
+    height: 28px;
+  }
+
+  .theme-option svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .app,
+  .header,
+  .theme-switcher,
+  .theme-option,
+  .theme-option-inner,
+  .product-card,
+  .cart-drawer {
+    transition: none !important;
+  }
+}

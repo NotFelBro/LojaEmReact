@@ -1,8 +1,6 @@
 .footer {
   margin-top: 80px;
-
   color: #eee8dc;
-
   background: #211d17;
 }
 
@@ -48,11 +46,20 @@
   width: 125px;
   height: auto;
 
-  filter:
-    brightness(0)
-    invert(1);
+  object-fit: contain;
 
-  opacity: 0.95;
+  filter: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-logo:hover img {
+  opacity: 0.85;
+
+  transform:
+    translateY(-1px);
 }
 
 .footer-description {
@@ -87,7 +94,8 @@
 
   text-decoration: none;
 
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease;
 }
 
 .footer-social:hover {
@@ -105,10 +113,10 @@
   color: #d8d0c2;
 
   border: 1px solid #50483d;
+
   border-radius: 50%;
 
   font-family: Arial, sans-serif;
-
   font-size: 10px;
   font-weight: 700;
 
@@ -122,6 +130,7 @@
 .footer-social:hover
 .footer-social-icon {
   color: #f3efe6;
+
   border-color: #8c7d69;
 }
 
@@ -155,6 +164,7 @@
   border: 0;
 
   font-family: inherit;
+
   font-size: 12px;
 
   text-decoration: none;
@@ -171,7 +181,8 @@
 .footer-column a:hover {
   color: #f3efe6;
 
-  transform: translateX(2px);
+  transform:
+    translateX(2px);
 }
 
 .footer-contact a,
@@ -193,7 +204,8 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid #3b352d;
+  border-top:
+    1px solid #3b352d;
 }
 
 .footer-bottom-inner {
@@ -234,14 +246,21 @@
   font-weight: 600;
 
   text-decoration: none;
+
   white-space: nowrap;
 
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease;
 }
 
 .footer-back-top:hover {
   color: #f3efe6;
 }
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
 
 @media (max-width: 900px) {
   .footer-inner {
@@ -264,14 +283,16 @@
   }
 
   .footer-inner {
-    width: min(
-      calc(100% - 32px),
-      500px
-    );
+    width:
+      min(
+        100% - 32px,
+        500px
+      );
 
     padding: 48px 0 42px;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
 
     gap: 35px 25px;
   }
@@ -281,10 +302,11 @@
   }
 
   .footer-bottom-inner {
-    width: min(
-      calc(100% - 32px),
-      500px
-    );
+    width:
+      min(
+        100% - 32px,
+        500px
+      );
 
     padding: 18px 0;
 
