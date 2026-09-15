@@ -43,27 +43,9 @@ export default function App() {
      TEMA
      ===================================================== */
 
+  // O projeto sempre inicia no modo Light
   const [theme, setTheme] =
-    useState(() => {
-      try {
-        const saved =
-          localStorage.getItem(
-            "torra-theme"
-          );
-
-        if (
-          saved === "light" ||
-          saved === "dark" ||
-          saved === "coffee"
-        ) {
-          return saved;
-        }
-      } catch {
-        // Ignora erro de localStorage.
-      }
-
-      return "light";
-    });
+    useState("light");
 
 
   useEffect(() => {
@@ -171,6 +153,29 @@ export default function App() {
   function goToProdutos() {
     setView("catalog");
 
+    // Volta para todos os produtos
+    setFilter("Tudo");
+
+    requestAnimationFrame(() => {
+      document
+        .getElementById("produtos")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
+    });
+  }
+
+
+  /* =====================================================
+     NAVEGAÇÃO POR CATEGORIA
+     ===================================================== */
+
+  function goToCategoria(category) {
+    setView("catalog");
+
+    // Define a categoria escolhida
+    setFilter(category);
+
     requestAnimationFrame(() => {
       document
         .getElementById("produtos")
@@ -200,27 +205,38 @@ export default function App() {
   return (
     <div className="app">
 
+      {/* =================================================
+          HEADER
+          ================================================= */}
+
       <Header
         cartCount={cartCount}
         favoriteCount={
           favorites.length
         }
+
         onCartClick={() =>
           setCartOpen(true)
         }
+
         onFavoritesClick={() =>
           setView("favorites")
         }
+
         onProdutosClick={
           goToProdutos
         }
+
         onSobreClick={() =>
           setView("about")
         }
+
         onHome={() =>
           setView("catalog")
         }
+
         search={search}
+
         onSearchChange={(value) => {
           setSearch(value);
 
@@ -230,7 +246,9 @@ export default function App() {
             setView("catalog");
           }
         }}
+
         theme={theme}
+
         onThemeChange={setTheme}
       />
 
@@ -250,10 +268,15 @@ export default function App() {
           <Catalog
             onOpen={setOpenProduct}
             onAdd={addToCart}
+
             filter={filter}
+
             setFilter={setFilter}
+
             search={search}
+
             favorites={favorites}
+
             onToggleFavorite={
               toggleFavorite
             }
@@ -269,12 +292,18 @@ export default function App() {
       {view === "favorites" && (
         <FavoritesPage
           favorites={favorites}
+
           onOpen={setOpenProduct}
+
           onAdd={addToCart}
+
           onToggleFavorite={
             toggleFavorite
           }
-          onBrowse={goToProdutos}
+
+          onBrowse={
+            goToProdutos
+          }
         />
       )}
 
@@ -295,10 +324,12 @@ export default function App() {
       {view === "checkout" && (
         <Checkout
           items={cart}
+
           onBack={() => {
             setView("catalog");
             setCartOpen(true);
           }}
+
           onDone={() => {
             setCart([]);
             setView("catalog");
@@ -313,10 +344,13 @@ export default function App() {
 
       <ProductDetail
         product={openProduct}
+
         onClose={() =>
           setOpenProduct(null)
         }
+
         onAdd={addToCart}
+
         isFavorite={
           openProduct
             ? favorites.includes(
@@ -324,6 +358,7 @@ export default function App() {
               )
             : false
         }
+
         onToggleFavorite={
           toggleFavorite
         }
@@ -336,12 +371,17 @@ export default function App() {
 
       <CartDrawer
         open={cartOpen}
+
         items={cart}
+
         onClose={() =>
           setCartOpen(false)
         }
+
         onQty={setQty}
+
         onRemove={removeItem}
+
         onCheckout={() => {
           setCartOpen(false);
           setView("checkout");
@@ -357,9 +397,15 @@ export default function App() {
         onProdutosClick={
           goToProdutos
         }
+
+        onCategoriaClick={
+          goToCategoria
+        }
+
         onSobreClick={() =>
           setView("about")
         }
+
         theme={theme}
       />
 

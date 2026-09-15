@@ -13,6 +13,7 @@ import "./Footer.css";
 
 export default function Footer({
   onProdutosClick,
+  onCategoriaClick,
   onSobreClick,
   theme,
 }) {
@@ -105,6 +106,8 @@ export default function Footer({
 
           <h3>Loja</h3>
 
+          {/* TODOS OS PRODUTOS */}
+
           <button
             type="button"
             onClick={onProdutosClick}
@@ -112,23 +115,39 @@ export default function Footer({
             Produtos
           </button>
 
+          {/* GRÃOS */}
+
           <button
             type="button"
-            onClick={onProdutosClick}
+            onClick={() =>
+              onCategoriaClick("Grãos")
+            }
           >
             Grãos
           </button>
 
+          {/* EQUIPAMENTOS */}
+
           <button
             type="button"
-            onClick={onProdutosClick}
+            onClick={() =>
+              onCategoriaClick(
+                "Equipamentos"
+              )
+            }
           >
             Equipamentos
           </button>
 
+          {/* ACESSÓRIOS */}
+
           <button
             type="button"
-            onClick={onProdutosClick}
+            onClick={() =>
+              onCategoriaClick(
+                "Acessórios"
+              )
+            }
           >
             Acessórios
           </button>
