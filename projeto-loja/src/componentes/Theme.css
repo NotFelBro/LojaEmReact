@@ -991,23 +991,82 @@ select:focus {
    ========================================================= */
 
 .footer {
+  color:
+    var(--theme-text) !important;
+
   background:
-    #211d17;
+    var(--theme-surface) !important;
+
+  border-color:
+    var(--theme-border) !important;
 
   transition:
-    background-color 0.35s ease;
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
 
-html[data-theme="dark"]
-.footer {
-  background:
-    #0e0d0b;
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer strong {
+  color:
+    var(--theme-text) !important;
 }
 
-html[data-theme="coffee"]
-.footer {
+.footer p,
+.footer span,
+.footer small {
+  color:
+    var(--theme-text-2) !important;
+}
+
+.footer a {
+  color:
+    var(--theme-text-2) !important;
+}
+
+.footer a:hover {
+  color:
+    var(--theme-accent) !important;
+}
+
+.footer svg {
+  color:
+    currentColor;
+}
+
+.footer .footer-title,
+.footer .footer-heading,
+.footer .footer-logo,
+.footer .footer-brand {
+  color:
+    var(--theme-text) !important;
+}
+
+.footer .footer-description,
+.footer .footer-text,
+.footer .footer-copyright {
+  color:
+    var(--theme-text-2) !important;
+}
+
+.footer .footer-muted {
+  color:
+    var(--theme-text-3) !important;
+}
+
+/* Ajustes específicos dos temas escuros */
+html[data-theme="dark"] .footer {
   background:
-    #211711;
+    var(--theme-surface) !important;
+}
+
+html[data-theme="coffee"] .footer {
+  background:
+    var(--theme-surface) !important;
 }
 
 
@@ -1101,4 +1160,290 @@ html[data-theme="coffee"]
   .cart-drawer {
     transition: none !important;
   }
+}
+
+/* =========================================================
+   CORREÇÃO FINAL DE CONTRASTE — DARK / COFFEE
+   ========================================================= */
+
+html[data-theme="dark"] .app,
+html[data-theme="coffee"] .app {
+  color: var(--theme-text);
+}
+
+html[data-theme="dark"] .app p,
+html[data-theme="coffee"] .app p {
+  color: var(--theme-text-2);
+}
+
+html[data-theme="dark"] .app h1,
+html[data-theme="dark"] .app h2,
+html[data-theme="dark"] .app h3,
+html[data-theme="dark"] .app h4,
+html[data-theme="dark"] .app h5,
+html[data-theme="dark"] .app h6,
+html[data-theme="coffee"] .app h1,
+html[data-theme="coffee"] .app h2,
+html[data-theme="coffee"] .app h3,
+html[data-theme="coffee"] .app h4,
+html[data-theme="coffee"] .app h5,
+html[data-theme="coffee"] .app h6 {
+  color: var(--theme-text);
+}
+
+html[data-theme="dark"] .app label,
+html[data-theme="coffee"] .app label {
+  color: var(--theme-text-2);
+}
+
+html[data-theme="dark"] .app li,
+html[data-theme="coffee"] .app li {
+  color: var(--theme-text-2);
+}
+
+html[data-theme="dark"] .app a,
+html[data-theme="coffee"] .app a {
+  color: var(--theme-text-2);
+}
+
+html[data-theme="dark"] .app a:hover,
+html[data-theme="coffee"] .app a:hover {
+  color: var(--theme-accent);
+}
+
+/* Classes que anteriormente usavam tons escuros fixos */
+html[data-theme="dark"] .nav-link,
+html[data-theme="coffee"] .nav-link,
+html[data-theme="dark"] .hero-sub,
+html[data-theme="coffee"] .hero-sub,
+html[data-theme="dark"] .filter-tab,
+html[data-theme="coffee"] .filter-tab,
+html[data-theme="dark"] .empty-state,
+html[data-theme="coffee"] .empty-state {
+  color: var(--theme-text-2) !important;
+}
+
+html[data-theme="dark"] .filter-tab.active,
+html[data-theme="coffee"] .filter-tab.active {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme="dark"] .card,
+html[data-theme="coffee"] .card {
+  color: var(--theme-text);
+  background: var(--theme-surface);
+  border-color: var(--theme-border);
+}
+
+html[data-theme="dark"] .card-body,
+html[data-theme="coffee"] .card-body {
+  color: var(--theme-text);
+}
+
+html[data-theme="dark"] .card-category,
+html[data-theme="coffee"] .card-category {
+  color: var(--theme-text-3) !important;
+}
+
+html[data-theme="dark"] .card-title,
+html[data-theme="coffee"] .card-title,
+html[data-theme="dark"] .card-price,
+html[data-theme="coffee"] .card-price {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme="dark"] .card-description,
+html[data-theme="coffee"] .card-description {
+  color: var(--theme-text-2) !important;
+}
+
+html[data-theme="dark"] .catalog-result-count,
+html[data-theme="coffee"] .catalog-result-count {
+  color: var(--theme-text-3) !important;
+}
+
+html[data-theme="dark"] .search-box,
+html[data-theme="coffee"] .search-box {
+  color: var(--theme-text-3) !important;
+}
+
+html[data-theme="dark"] .search-box input,
+html[data-theme="coffee"] .search-box input {
+  color: var(--theme-text) !important;
+}
+
+html[data-theme="dark"] .search-box input::placeholder,
+html[data-theme="coffee"] .search-box input::placeholder {
+  color: var(--theme-text-3) !important;
+}
+
+/* Textos de conteúdo que possam estar herdando --ink antigo */
+html[data-theme="dark"] .page-wrap,
+html[data-theme="coffee"] .page-wrap,
+html[data-theme="dark"] .narrow-page,
+html[data-theme="coffee"] .narrow-page {
+  color: var(--theme-text);
+}
+
+html[data-theme="dark"] .page-wrap p,
+html[data-theme="coffee"] .page-wrap p,
+html[data-theme="dark"] .narrow-page p,
+html[data-theme="coffee"] .narrow-page p {
+  color: var(--theme-text-2);
+}
+
+html[data-theme="dark"] .page-wrap h1,
+html[data-theme="dark"] .page-wrap h2,
+html[data-theme="dark"] .page-wrap h3,
+html[data-theme="coffee"] .page-wrap h1,
+html[data-theme="coffee"] .page-wrap h2,
+html[data-theme="coffee"] .page-wrap h3,
+html[data-theme="dark"] .narrow-page h1,
+html[data-theme="dark"] .narrow-page h2,
+html[data-theme="dark"] .narrow-page h3,
+html[data-theme="coffee"] .narrow-page h1,
+html[data-theme="coffee"] .narrow-page h2,
+html[data-theme="coffee"] .narrow-page h3 {
+  color: var(--theme-text) !important;
+}
+
+/* =========================================================
+   CHECKOUT — CONTRASTE E HOVER
+   ========================================================= */
+
+.checkout,
+.checkout-page,
+.checkout-section {
+  color: var(--theme-text) !important;
+}
+
+.checkout-summary,
+.checkout-card,
+.checkout-panel {
+  color: var(--theme-text) !important;
+  background: var(--theme-surface) !important;
+  border-color: var(--theme-border) !important;
+}
+
+.checkout-summary h1,
+.checkout-summary h2,
+.checkout-summary h3,
+.checkout-summary h4,
+.checkout-summary strong {
+  color: var(--theme-text) !important;
+}
+
+.checkout-summary p,
+.checkout-summary span,
+.checkout-summary li {
+  color: var(--theme-text-2) !important;
+}
+
+.checkout-summary .product-name,
+.checkout-summary .item-name,
+.checkout-summary .summary-item {
+  color: var(--theme-text-2) !important;
+}
+
+.checkout-summary .price,
+.checkout-summary .item-price,
+.checkout-summary .summary-price {
+  color: var(--theme-text-2) !important;
+}
+
+.checkout-summary .total,
+.checkout-summary .total-label,
+.checkout-summary .total-price {
+  color: var(--theme-text) !important;
+  font-weight: 700;
+}
+
+/* =========================================================
+   VOLTAR À SACOLA
+   ========================================================= */
+
+.checkout a,
+.checkout-page a {
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.checkout a:first-child,
+.checkout-page a:first-child {
+  color: var(--theme-text-2) !important;
+}
+
+.checkout a:first-child:hover,
+.checkout-page a:first-child:hover {
+  color: var(--theme-text) !important;
+  background: var(--theme-surface-2) !important;
+  box-shadow:
+    0 0 0 1px var(--theme-border),
+    0 6px 18px var(--theme-shadow);
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   DARK — CHECKOUT
+   ========================================================= */
+
+html[data-theme="dark"] .checkout-summary p,
+html[data-theme="dark"] .checkout-summary span,
+html[data-theme="dark"] .checkout-summary li {
+  color: #d8d0c5 !important;
+}
+
+html[data-theme="dark"] .checkout-summary h1,
+html[data-theme="dark"] .checkout-summary h2,
+html[data-theme="dark"] .checkout-summary h3,
+html[data-theme="dark"] .checkout-summary strong,
+html[data-theme="dark"] .checkout-summary .total,
+html[data-theme="dark"] .checkout-summary .total-label,
+html[data-theme="dark"] .checkout-summary .total-price {
+  color: #f5f0e8 !important;
+}
+
+/* =========================================================
+   COFFEE — CHECKOUT
+   ========================================================= */
+
+html[data-theme="coffee"] .checkout-summary p,
+html[data-theme="coffee"] .checkout-summary span,
+html[data-theme="coffee"] .checkout-summary li {
+  color: #dbc9b8 !important;
+}
+
+html[data-theme="coffee"] .checkout-summary h1,
+html[data-theme="coffee"] .checkout-summary h2,
+html[data-theme="coffee"] .checkout-summary h3,
+html[data-theme="coffee"] .checkout-summary strong,
+html[data-theme="coffee"] .checkout-summary .total,
+html[data-theme="coffee"] .checkout-summary .total-label,
+html[data-theme="coffee"] .checkout-summary .total-price {
+  color: #f7ecdf !important;
+}
+
+/* =========================================================
+   VOLTAR — DARK / COFFEE
+   ========================================================= */
+
+html[data-theme="dark"] .checkout a:first-child,
+html[data-theme="coffee"] .checkout a:first-child,
+html[data-theme="dark"] .checkout-page a:first-child,
+html[data-theme="coffee"] .checkout-page a:first-child {
+  color: #cfc5b8 !important;
+}
+
+html[data-theme="dark"] .checkout a:first-child:hover,
+html[data-theme="coffee"] .checkout a:first-child:hover,
+html[data-theme="dark"] .checkout-page a:first-child:hover,
+html[data-theme="coffee"] .checkout-page a:first-child:hover {
+  color: #fff8ed !important;
+  background: var(--theme-surface-2) !important;
+  box-shadow:
+    0 0 0 1px var(--theme-accent),
+    0 6px 20px rgba(0, 0, 0, 0.22);
 }
